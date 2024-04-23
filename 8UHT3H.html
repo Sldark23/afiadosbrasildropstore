@@ -45,7 +45,7 @@
                 var listaBotoesCompra = $('#lista-botoes-compra');
 
                 produtos.forEach(function(produto) {
-                    var botaoCompra = '<script class="ymp-script botao-compra" src="https://api.yampi.io/v2/brasildrop-store/public/buy-button/6OJNNGQZVT/js?productId=' + produto.id + '"></script>';
+                    var botaoCompra = '<script class="ymp-script botao-compra" src="' + produto.url + '"></script>';
 
                     listaBotoesCompra.append(botaoCompra);
                 });
