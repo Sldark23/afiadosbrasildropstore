@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página da Afiliada Marilene Marquês Da Silva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f5e1; /* Verde claro */
+            color: #333; /* Cor do texto */
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #lista-botoes-compra {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .botao-compra {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Produtos da Afiliada Marilene Marquês Da Silva</h1>
+            <p>Confira os produtos disponíveis para venda:</p>
+        </div>
+        <div id="lista-botoes-compra"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.getJSON('produtos.json', function(produtos) {
+                var listaBotoesCompra = $('#lista-botoes-compra');
+
+                produtos.forEach(function(produto) {
+                    var botaoCompra = '<script class="ymp-script botao-compra" src="https://api.yampi.io/v2/brasildrop-store/public/buy-button/6OJNNGQZVT/js?productId=' + produto.id + '"></script>';
+
+                    listaBotoesCompra.append(botaoCompra);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
